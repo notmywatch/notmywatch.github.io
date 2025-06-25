@@ -1,8 +1,89 @@
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4">
-  <div class="rounded-2xl overflow-hidden shadow-lg bg-zinc-900">
-    <img src="solo.jpg" alt="Solo Leveling" class="w-full h-48 object-cover">
-    <div class="p-4 text-center text-white">Solo Leveling</div>
-  </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NotMyWatch</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
 
-  <div class="rounded-2xl overflow-hidden shadow-lg bg-zinc-900">
-    <img src="orv.jpg" alt="Omniscient Reader" class="w-full h-48 object-cover">
+    header {
+      text-align: center;
+      padding: 30px 10px 20px;
+      border-bottom: 1px solid #333;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin: 0;
+    }
+
+    p {
+      margin-top: 8px;
+      color: #aaa;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card {
+      background-color: #1b1b1b;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-title {
+      padding: 10px;
+      font-size: 1rem;
+      text-align: center;
+      background: #111;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>NotMyWatch</h1>
+    <p>Your mobile-friendly manhwa site</p>
+  </header>
+
+  <div class="grid">
+    <div class="card">
+      <img src="solo.jpg" alt="Solo Leveling">
+      <div class="card-title">Solo Leveling</div>
+    </div>
+
+    <div class="card">
+      <img src="orc.jpg" alt="Omniscient Reader">
+      <div class="card-title">Omniscient Reader</div>
+    </div>
+
+    <div class="card">
+      <img src="estate.jpg" alt="Greatest Estate Developer">
+      <div class="card-title">Greatest Estate Developer</div>
+    </div>
+  </div>
+</body>
+</html>
