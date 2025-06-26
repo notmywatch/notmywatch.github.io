@@ -3,87 +3,110 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NotMyWatch</title>
+  <title>NotMyWatch – Read Manhwa Free</title>
   <style>
     body {
-      background-color: #111;
-      color: #fff;
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
     }
 
     header {
+      background-color: #111;
+      padding: 1rem;
       text-align: center;
-      padding: 30px 10px 20px;
-      border-bottom: 1px solid #333;
+      border-bottom: 1px solid #222;
     }
 
-    h1 {
-      font-size: 2rem;
+    header h1 {
+      color: #14a3c7;
       margin: 0;
+      font-size: 2rem;
     }
 
-    p {
-      margin-top: 8px;
-      color: #aaa;
+    .search-bar {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .search-bar input {
+      width: 90%;
+      max-width: 400px;
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      border: none;
+      font-size: 1rem;
+      background-color: #222;
+      color: #fff;
+      outline: none;
+    }
+
+    .section-title {
+      color: #14a3c7;
+      font-size: 1.5rem;
+      margin: 1.5rem 1rem 0.5rem;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 20px;
-      padding: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 1rem;
+      padding: 1rem;
     }
 
     .card {
-      background-color: #1b1b1b;
-      border-radius: 16px;
+      background-color: #111;
+      border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-      transition: transform 0.3s;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      transition: transform 0.2s;
     }
 
     .card:hover {
-      transform: scale(1.05);
+      transform: scale(1.03);
     }
 
     .card img {
       width: 100%;
       height: 220px;
-      object-fit: cover;
-      display: block;
+      object-fit: contain;
+      background-color: #000;
     }
 
     .card-title {
-      padding: 10px;
+      padding: 0.5rem;
       font-size: 1rem;
       text-align: center;
-      background: #111;
+      color: #fff;
     }
   </style>
 </head>
 <body>
+
   <header>
     <h1>NotMyWatch</h1>
-    <p>Your mobile-friendly manhwa site</p>
+    <div class="search-bar">
+      <input type="text" placeholder="Search manhwa..." />
+    </div>
   </header>
 
+  <div class="section-title">Popular Today</div>
   <div class="grid">
     <div class="card">
       <img src="solo.jpg" alt="Solo Leveling">
       <div class="card-title">Solo Leveling</div>
     </div>
-
     <div class="card">
-      <img src="orv.jpg" alt="Omniscient Reader">
+      <img src="orv.jpg" alt="Omniscient Reader’s Viewpoint">
       <div class="card-title">Omniscient Reader</div>
     </div>
-
     <div class="card">
       <img src="estate.jpg" alt="Greatest Estate Developer">
       <div class="card-title">Greatest Estate Developer</div>
     </div>
   </div>
+
 </body>
 </html>
