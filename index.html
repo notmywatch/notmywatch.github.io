@@ -2,65 +2,88 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NotMyWatch – Read Manhwa Free</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NotMyWatch</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #000;
-      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #111;
+      color: white;
     }
 
     header {
-      background-color: #111;
-      padding: 1rem;
-      text-align: center;
+      background-color: #000;
+      color: #14a3c7;
+      padding: 10px 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 10;
       border-bottom: 1px solid #222;
     }
 
-    header h1 {
-      color: #14a3c7;
-      margin: 0;
-      font-size: 2rem;
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
     }
 
-    .search-bar {
-      margin-top: 1rem;
+    .top-icons {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .top-icons i {
+      font-size: 18px;
+      color: white;
+    }
+
+    .search-container {
+      margin-top: 60px;
       display: flex;
       justify-content: center;
+      padding: 10px;
     }
 
-    .search-bar input {
-      width: 90%;
-      max-width: 400px;
-      padding: 0.6rem 1rem;
-      border-radius: 8px;
-      border: none;
-      font-size: 1rem;
+    .search-box {
       background-color: #222;
-      color: #fff;
-      outline: none;
+      color: white;
+      border: none;
+      padding: 10px 15px 10px 40px;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 600px;
+      font-size: 16px;
+      background-image: url('https://cdn-icons-png.flaticon.com/512/622/622669.png');
+      background-size: 18px;
+      background-repeat: no-repeat;
+      background-position: 12px center;
     }
 
-    .section-title {
+    h2 {
+      padding: 10px 20px;
       color: #14a3c7;
-      font-size: 1.5rem;
-      margin: 1.5rem 1rem 0.5rem;
+      margin-top: 20px;
+      border-bottom: 1px solid #222;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 1rem;
-      padding: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      padding: 0 20px 40px;
     }
 
     .card {
-      background-color: #111;
+      background-color: #1a1a1a;
       border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 0 5px rgba(0,0,0,0.7);
       transition: transform 0.2s;
     }
 
@@ -70,43 +93,68 @@
 
     .card img {
       width: 100%;
-      height: 220px;
-      object-fit: contain;
-      background-color: #000;
+      height: 200px;
+      object-fit: cover;
+      border-bottom: 2px solid #14a3c7;
     }
 
-    .card-title {
-      padding: 0.5rem;
-      font-size: 1rem;
+    .card p {
+      margin: 10px;
+      font-size: 14px;
       text-align: center;
-      color: #fff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+      color: #aaa;
+    }
+
+    @media (max-width: 500px) {
+      .card img {
+        height: 180px;
+      }
     }
   </style>
 </head>
 <body>
 
+  <!-- Top Navigation Bar -->
   <header>
-    <h1>NotMyWatch</h1>
-    <div class="search-bar">
-      <input type="text" placeholder="Search manhwa..." />
+    <div class="logo">NotMyWatch</div>
+    <div class="top-icons">
+      <i class="fas fa-home"></i>
+      <i class="fas fa-user"></i>
+      <i class="fas fa-sign-in-alt"></i>
     </div>
   </header>
 
-  <div class="section-title">Popular Today</div>
+  <!-- Search Bar -->
+  <div class="search-container">
+    <input class="search-box" type="text" placeholder="Search manhwa..." />
+  </div>
+
+  <!-- Comic Section -->
+  <h2>Popular Today</h2>
   <div class="grid">
     <div class="card">
       <img src="solo.jpg" alt="Solo Leveling">
-      <div class="card-title">Solo Leveling</div>
+      <p>Solo Leveling</p>
     </div>
     <div class="card">
-      <img src="orv.jpg" alt="Omniscient Reader’s Viewpoint">
-      <div class="card-title">Omniscient Reader</div>
+      <img src="orc.jpg" alt="Orc Hero">
+      <p>Greatest Orc Hero</p>
     </div>
     <div class="card">
-      <img src="estate.jpg" alt="Greatest Estate Developer">
-      <div class="card-title">Greatest Estate Developer</div>
+      <img src="greatest.jpg" alt="Omniscient Reader">
+      <p>Omniscient Reader</p>
     </div>
   </div>
+
+  <footer>
+    © 2025 NotMyWatch. Inspired by AsuraScans.
+  </footer>
 
 </body>
 </html>
