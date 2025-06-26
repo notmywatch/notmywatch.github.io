@@ -25,10 +25,19 @@
       top: 0;
       z-index: 1000;
       border-bottom: 1px solid #222;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
     header h1 {
       color: #14a3c7;
       font-size: 1.5rem;
+    }
+    .menu-icon {
+      font-size: 1.5rem;
+      color: white;
+      cursor: pointer;
+      margin-right: 12px;
     }
     .search-container {
       display: flex;
@@ -103,7 +112,7 @@
     }
     .sidebar {
       position: fixed;
-      right: 0;
+      right: -240px;
       top: 0;
       width: 220px;
       height: 100%;
@@ -112,7 +121,11 @@
       display: flex;
       flex-direction: column;
       padding: 24px 16px;
+      transition: right 0.3s ease;
       z-index: 2000;
+    }
+    .sidebar.open {
+      right: 0;
     }
     .sidebar a {
       color: #fff;
@@ -131,6 +144,7 @@
 <body>
   <header>
     <h1>NotMyWatch</h1>
+    <i class="fas fa-bars menu-icon" onclick="toggleSidebar()"></i>
   </header>  <div class="search-container">
     <input type="text" placeholder="Search manhwa...">
     <i class="fas fa-search"></i>
@@ -142,16 +156,15 @@
         <p>Solo Leveling</p>
       </div>
       <div class="card">
-        <img src="orc.jpg" alt="Orc Hero">
-        <p>Orc Hero</p>
+        <img src="orv.jpg" alt="Omniscient Reader’s Viewpoint">
+        <p>Omniscient Reader’s Viewpoint</p>
       </div>
       <div class="card">
         <img src="greatest.jpg" alt="Greatest Estate Developer">
         <p>Greatest Estate Developer</p>
       </div>
-      <!-- Add more cards here -->
     </div>
-  </div>  <div class="sidebar">
+  </div>  <div class="sidebar" id="sidebar">
     <a href="#"><i class="fas fa-home"></i> Home</a>
     <a href="#"><i class="fas fa-book"></i> Comics</a>
     <a href="#"><i class="fas fa-bookmark"></i> Bookmarks</a>
@@ -161,6 +174,10 @@
     <i class="fas fa-home"></i>
     <i class="fas fa-star"></i>
     <i class="fas fa-user-circle"></i>
-  </nav>
-</body>
+  </nav>  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('open');
+    }
+  </script></body>
 </html>
