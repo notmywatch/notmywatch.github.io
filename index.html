@@ -9,3 +9,119 @@
   <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background-color: #000;
+      color: white;
+    }
+    header {
+      background-color: #0a0a0a;
+      padding: 16px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #222;
+    }
+    header h1 {
+      color: #14a3c7;
+      font-size: 1.5rem;
+    }
+    .menu-icon {
+      font-size: 1.5rem;
+      color: white;
+      cursor: pointer;
+    }
+    .search-container {
+      display: flex;
+      justify-content: center;
+      position: relative;
+      margin: 16px;
+    }
+    .search-container input {
+      background-color: #1a1a1a;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 40px 10px 16px;
+      width: 90%;
+      max-width: 500px;
+      color: white;
+      font-size: 1rem;
+    }
+    .search-container .fa-search {
+      position: absolute;
+      right: 30px;
+      top: 11px;
+      color: #aaa;
+    }
+    .section {
+      padding: 0 16px;
+    }
+    h2 {
+      margin: 16px 0;
+      color: #14a3c7;
+      font-size: 1.3rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background-color: #111;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+    .card img {
+      width: 100%;
+      height: 225px;
+      object-fit: cover;
+      border-bottom: 2px solid #14a3c7;
+    }
+    .card p {
+      padding: 8px;
+      color: #fff;
+      font-weight: 600;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    nav {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #0a0a0a;
+      display: flex;
+      justify-content: space-around;
+      padding: 12px 0;
+      border-top: 1px solid #222;
+    }
+    nav i {
+      font-size: 1.4rem;
+      color: white;
+    }
+    .sidebar {
+      position: fixed;
+      right: -250px;
+      top: 0;
+      width: 220px;
+      height: 100%;
+      background-color: #0a0a0a;
+      box-shadow: -2px 0 6px rgba(0,0,0,0.3);
+      padding: 24px 16px;
+      transition: right 0.3s ease;
+      z-index: 2000;
+    }
+    .sidebar.open {
+      right: 0;
+    }
+    .sidebar a {
+      color
