@@ -2,4 +2,187 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NotMyWatch - Manhwa Reader</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: white;
+      display: flex;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 220px;
+      background-color: #111;
+      padding: 20px;
+      height: 100vh;
+      position: fixed;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .sidebar h1 {
+      color: #14a3c7;
+      font-size: 22px;
+      margin-bottom: 30px;
+    }
+
+    .sidebar nav a {
+      color: white;
+      text-decoration: none;
+      margin: 10px 0;
+      font-size: 16px;
+      display: block;
+    }
+
+    .sidebar nav a:hover {
+      color: #14a3c7;
+    }
+
+    .profile {
+      width: 50px;
+      height: 50px;
+      background-color: #333;
+      border-radius: 50%;
+      margin-top: 30px;
+      align-self: center;
+    }
+
+    /* Main content */
+    .main {
+      margin-left: 220px;
+      padding: 20px;
+      flex: 1;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .searchbar {
+      background-color: #222;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 6px;
+      color: white;
+      width: 60%;
+    }
+
+    .searchbar::placeholder {
+      color: #aaa;
+    }
+
+    .topbar span {
+      font-size: 22px;
+      color: #14a3c7;
+    }
+
+    /* Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background-color: #111;
+      border-radius: 10px;
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card p {
+      padding: 10px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        display: none;
+      }
+      .main {
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div>
+      <h1>NotMyWatch</h1>
+      <nav>
+        <a href="#">🏠 Home</a>
+        <a href="#">📚 Comics</a>
+        <a href="#">🔖 Bookmarks</a>
+        <a href="#">💼 Recruitment</a>
+        <a href="#">🔐 Login</a>
+      </nav>
+    </div>
+    <div class="profile"></div>
+  </div>
+
+  <!-- Main -->
+  <div class="main">
+    <div class="topbar">
+      <span>🔥 Popular Manhwa</span>
+      <input class="searchbar" type="text" placeholder="🔍 Search manhwa..." />
+    </div>
+
+    <div class="grid">
+      <!-- Real cards -->
+      <div class="card">
+        <img src="solo.jpg" alt="Solo Leveling">
+        <p>Solo Leveling</p>
+      </div>
+      <div class="card">
+        <img src="orv.jpg" alt="Omniscient Reader">
+        <p>Omniscient Reader</p>
+      </div>
+      <div class="card">
+        <img src="estate.jpg" alt="Greatest Estate Developer">
+        <p>Greatest Estate Developer</p>
+      </div>
+
+      <!-- Extra blank cards -->
+      <div class="card"><img src="solo.jpg" alt="Upcoming"><p>Coming Soon</p></div>
+      <div class="card"><img src="orv.jpg" alt="Upcoming"><p>Coming Soon</p></div>
+      <div class="card"><img src="estate.jpg" alt="Upcoming"><p>Coming Soon</p></div>
+      <div class="card"><img src="solo.jpg" alt="Upcoming"><p>Coming Soon</p></div>
+      <div class="card"><img src="orv.jpg" alt="Upcoming"><p>Coming Soon</p></div>
+      <div class="card"><img src="estate.jpg" alt="Upcoming"><p>Coming Soon</p></div>
+      <div class="card"><img src="solo.jpg" alt="Upcoming"><p>Coming Soon</p></div>
+      <div class="card"><img src="orv.jpg" alt="Upcoming"><p>Coming Soon</p></div>
+      <div class="card"><img src="estate.jpg" alt="Upcoming"><p>Coming Soon</p></div>
+      <div class="card"><img src="solo.jpg" alt="Upcoming"><p>Coming Soon</p></div>
+      <div class="card"><img src="orv.jpg" alt="Upcoming"><p>Coming Soon</p></div>
+      <div class="card"><img src="estate.jpg" alt="Upcoming"><p>Coming Soon</p></div>
+    </div>
+  </div>
+</body>
+</html>
