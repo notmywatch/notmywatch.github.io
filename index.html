@@ -2,25 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NotMyWatch – Free Manhwa</title>
-  <meta name="description" content="Read free high-quality manhwa like Solo Leveling, ORV, and more – only on NotMyWatch.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NotMyWatch – Read Latest Manhwa</title>
+  <meta name="description" content="Read the latest Korean Manhwa like Solo Leveling, ORV, and more – Free and mobile-friendly.">
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    * { box-sizing: border-box; }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      margin: 0;
       font-family: 'Roboto', sans-serif;
-      background-color: #0d0d0d;
-      color: white;
+      background: linear-gradient(to bottom, #0d0d0d, #1a1a1a);
+      color: #fff;
     }
 
     header {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      background-color: #111;
+      align-items: center;
+      background: #111;
       padding: 10px 15px;
       position: sticky;
       top: 0;
@@ -28,33 +27,32 @@
     }
 
     .menu-btn {
-      font-size: 24px;
+      font-size: 22px;
+      color: #fff;
       cursor: pointer;
-      color: #14a3c7;
     }
 
     .search-bar {
       flex: 1;
-      margin-left: 10px;
       display: flex;
       align-items: center;
-      background-color: #1a1a1a;
-      padding: 5px 10px;
+      background-color: #1f1f1f;
       border-radius: 5px;
+      margin-left: 10px;
+      padding: 5px 10px;
+    }
+
+    .search-bar i {
+      color: #14a3c7;
+      margin-right: 6px;
     }
 
     .search-bar input {
-      background: none;
+      background: transparent;
       border: none;
       outline: none;
       color: white;
       width: 100%;
-      padding: 5px;
-    }
-
-    .search-bar span {
-      margin-right: 8px;
-      color: #14a3c7;
     }
 
     .sidebar {
@@ -63,23 +61,38 @@
       right: 0;
       width: 220px;
       height: 100%;
-      background-color: #111;
-      padding: 20px;
+      background-color: #121212;
       transform: translateX(100%);
       transition: transform 0.3s ease;
       z-index: 999;
+      padding: 20px;
     }
 
     .sidebar.open {
       transform: translateX(0);
     }
 
-    .sidebar a {
-      display: block;
-      padding: 12px 0;
+    .sidebar .icon {
+      display: flex;
+      align-items: center;
+      padding: 10px 0;
+      font-size: 16px;
+      color: #fff;
+      border-bottom: 1px solid #2c2c2c;
+    }
+
+    .sidebar .icon i {
+      margin-right: 12px;
       color: white;
-      text-decoration: none;
-      border-bottom: 1px solid #333;
+    }
+
+    .profile-pic {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 2px solid #14a3c7;
+      margin-bottom: 20px;
+      object-fit: cover;
     }
 
     .banner-slider {
@@ -90,12 +103,12 @@
     .slides {
       display: flex;
       width: 300%;
-      animation: slide 15s infinite;
+      animation: slide 12s infinite;
     }
 
     .slides img {
       width: 100%;
-      height: 200px;
+      height: 180px;
       object-fit: cover;
     }
 
@@ -107,7 +120,7 @@
     }
 
     .section {
-      padding: 10px 15px;
+      padding: 15px;
     }
 
     .section h2 {
@@ -118,51 +131,62 @@
     .grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
+      gap: 12px;
     }
 
     .card {
-      background-color: #1a1a1a;
+      background: #1f1f1f;
       border-radius: 8px;
       overflow: hidden;
+      text-align: center;
     }
 
     .card img {
       width: 100%;
-      height: 150px;
+      height: 180px;
       object-fit: cover;
     }
 
     .card-title {
-      text-align: center;
-      padding: 6px;
+      padding: 8px;
       font-size: 14px;
+      color: #fff;
+    }
+
+    @media(min-width: 768px) {
+      .grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .card img {
+        height: 220px;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="menu-btn" onclick="toggleSidebar()">☰</div>
+    <div class="menu-btn" onclick="toggleSidebar()"><i class="fas fa-bars"></i></div>
     <div class="search-bar">
-      <span>🔍</span>
+      <i class="fas fa-search"></i>
       <input type="text" placeholder="Search manhwa...">
     </div>
   </header>
 
   <div class="sidebar" id="sidebar">
-    <a href="#">🏠 Home</a>
-    <a href="#">📚 Comics</a>
-    <a href="#">🔖 Bookmarks</a>
-    <a href="#">💼 Recruitment</a>
-    <a href="#">🔐 Login</a>
+    <img src="profile.jpg" alt="Profile" class="profile-pic" />
+    <div class="icon"><i class="fas fa-home"></i> Home</div>
+    <div class="icon"><i class="fas fa-book-open"></i> Comics</div>
+    <div class="icon"><i class="fas fa-bookmark"></i> Bookmarks</div>
+    <div class="icon"><i class="fas fa-user-plus"></i> Recruitment</div>
+    <div class="icon"><i class="fas fa-sign-in-alt"></i> Login</div>
   </div>
 
   <div class="banner-slider">
     <div class="slides">
-      <img src="solo.jpg" alt="Solo Leveling">
-      <img src="orv.jpg" alt="ORV">
-      <img src="estate.jpg" alt="Estate Developer">
+      <img src="solo.jpg" alt="Solo Leveling" />
+      <img src="orv.jpg" alt="Omniscient Reader" />
+      <img src="estate.jpg" alt="Estate Developer" />
     </div>
   </div>
 
@@ -177,15 +201,14 @@
   <div class="section">
     <h2>Latest Updates</h2>
     <div class="grid">
-      <div class="card"><img src="estate.jpg" /><div class="card-title">Greatest Estate</div></div>
+      <div class="card"><img src="estate.jpg" /><div class="card-title">Estate Developer</div></div>
       <div class="card"><img src="solo.jpg" /><div class="card-title">Solo Leveling</div></div>
     </div>
   </div>
 
   <script>
     function toggleSidebar() {
-      const sidebar = document.getElementById('sidebar');
-      sidebar.classList.toggle('open');
+      document.getElementById('sidebar').classList.toggle('open');
     }
   </script>
 
