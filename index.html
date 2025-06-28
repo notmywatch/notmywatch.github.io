@@ -1,112 +1,153 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NotMyWatch – Read Popular Manhwas</title>
-  <meta name="description" content="Read trending Korean manhwas like Solo Leveling, ORV, and more. Free, English-translated comics updated daily. Mobile-friendly and smooth layout.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NotMyWatch – Read Latest Manhwa</title>
+  <meta name="description" content="Read the latest Korean Manhwa like Solo Leveling, ORV, and more – Free and mobile-friendly.">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom, #0f0f0f, #1c1c1c);
-      color: white;
-      overflow-x: hidden;
+      background: linear-gradient(to bottom, #0d0d0d, #1a1a1a);
+      color: #fff;
     }
+
     header {
-      background: #141414;
+      background-color: #121212;
       padding: 1rem;
       text-align: center;
-      font-size: 1.5rem;
-      font-weight: bold;
       color: #14a3c7;
+      font-size: 1.8rem;
+      font-weight: bold;
+      letter-spacing: 1px;
     }
+
     .sidebar {
       position: fixed;
       top: 0;
       right: 0;
       width: 70px;
-      height: 100%;
-      background: rgba(0,0,0,0.7);
+      height: 100vh;
+      background-color: #0d0d0d;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-top: 1rem;
+      padding-top: 10px;
+      border-left: 1px solid #333;
     }
-    .sidebar img {
+
+    .sidebar img.profile {
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      margin-bottom: 1rem;
+      margin-bottom: 20px;
     }
-    .sidebar a {
+
+    .sidebar .icon {
       color: white;
-      text-decoration: none;
-      margin: 10px 0;
-      font-size: 1.2rem;
+      font-size: 20px;
+      margin: 20px 0;
     }
-    .banner {
-      width: 100%;
-      height: 200px;
-      background: url("baner.jpg") center/cover no-repeat;
-      margin-bottom: 1rem;
-    }
+
     .section-title {
-      padding: 0.5rem 1rem;
-      font-size: 1.2rem;
+      font-size: 1.4rem;
+      margin: 1rem;
       color: #14a3c7;
     }
+
+    .banner-slider {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+    }
+
+    .banner-slider img {
+      width: 300px;
+      height: 180px;
+      object-fit: cover;
+      scroll-snap-align: start;
+      margin-right: 10px;
+      border-radius: 8px;
+    }
+
     .grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      padding: 0 1rem 1rem 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 12px;
+      padding: 1rem;
     }
+
     .card {
-      background: #1f1f1f;
-      border: 1px solid #333;
+      background-color: #1f1f1f;
       border-radius: 8px;
       overflow: hidden;
       text-align: center;
+      border: 1px solid #333;
     }
+
     .card img {
       width: 100%;
-      height: 150px;
+      height: 200px;
       object-fit: cover;
     }
+
     .card-title {
+      padding: 8px;
       font-size: 0.9rem;
-      padding: 0.5rem;
-      color: #ddd;
+      color: #fff;
     }
-    @media (max-width: 600px) {
-      .grid {
-        grid-template-columns: repeat(2, 1fr);
+
+    /* Scrollbar Styling */
+    ::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #14a3c7;
+      border-radius: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .banner-slider img {
+        width: 240px;
+        height: 150px;
+      }
+
+      .card img {
+        height: 160px;
       }
     }
   </style>
 </head>
 <body>
   <header>NotMyWatch</header>
+
+  <!-- Sidebar (Right side) -->
   <div class="sidebar">
-    <img src="profile.jpg" alt="Profile" />
-    <a href="#">🏠</a>
-    <a href="#">📚</a>
-    <a href="#">🔖</a>
-    <a href="#">🧑‍💼</a>
-    <a href="#">🔍</a>
-  </div>  <div class="banner"></div>  <div class="section-title">Popular Today</div>
-  <div class="grid">
-    <div class="card"><img src="solo.jpg" alt="Solo Leveling" /><div class="card-title">Solo Leveling</div></div>
-    <div class="card"><img src="orv.jpg" alt="ORV" /><div class="card-title">ORV</div></div>
-    <div class="card"><img src="estate.jpg" alt="Greatest Estate Developer" /><div class="card-title">Estate Developer</div></div>
-  </div>  <div class="section-title">Latest Updates</div>
-  <div class="grid">
-    <div class="card"><img src="solo.jpg" alt="Coming Soon" /><div class="card-title">Coming Soon</div></div>
-    <div class="card"><img src="orv.jpg" alt="Coming Soon" /><div class="card-title">Coming Soon</div></div>
-    <div class="card"><img src="estate.jpg" alt="Coming Soon" /><div class="card-title">Coming Soon</div></div>
-    <div class="card"><img src="solo.jpg" alt="Coming Soon" /><div class="card-title">Coming Soon</div></div>
-    <div class="card"><img src="orv.jpg" alt="Coming Soon" /><div class="card-title">Coming Soon</div></div>
-    <div class="card"><img src="estate.jpg" alt="Coming Soon" /><div class="card-title">Coming Soon</div></div>
+    <img src="solo.jpg" alt="Profile" class="profile" />
+    <div class="icon">🏠</div>
+    <div class="icon">📚</div>
+    <div class="icon">🔖</div>
+    <div class="icon">🔍</div>
+    <div class="icon">🔐</div>
   </div>
-</body>
-</html>
+
+  <!-- Banner Slider -->
+  <div class="section-title">🔥 Most Popular</div>
+  <div class="banner-slider">
+    <img src="solo.jpg" alt="Solo Leveling" />
+    <img src="orv.jpg" alt="ORV" />
+    <img src="estate.jpg" alt="Estate Dev" />
+    <img src="solo.jpg" alt="Coming Soon" />
+    <img src="orv.jpg" alt="Coming Soon" />
+  </div>
+
+  <!-- Popular Today -->
+  <div class="section-title">📈 Popular Today</div>
+  <div class="grid">
+    <div class="card"><img src="solo.jpg" /><div class="card-title">Solo Leveling</div></div>
+    <div class="card"><img src="orv.jpg" /><div class="card-title">ORV</div></div>
+    <div class="card"><img src="estate.jpg" /><div class="card-title">Estate Developer</div></div>
+    <div class="card"><img src="orv.jpg" /><div class="card-title">Coming Soon</div></div>
+    <div class="card"><img src="solo.jpg" /><div class="card-title">Coming Soon</div></
