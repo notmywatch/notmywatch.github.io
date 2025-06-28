@@ -1,153 +1,188 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NotMyWatch – Read Latest Manhwa</title>
   <meta name="description" content="Read the latest Korean Manhwa like Solo Leveling, ORV, and more – Free and mobile-friendly.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom, #0d0d0d, #1a1a1a);
-      color: #fff;
-    }
-
-    header {
-      background-color: #121212;
-      padding: 1rem;
-      text-align: center;
-      color: #14a3c7;
-      font-size: 1.8rem;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-
-    .sidebar {
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: 70px;
-      height: 100vh;
-      background-color: #0d0d0d;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-top: 10px;
-      border-left: 1px solid #333;
-    }
-
-    .sidebar img.profile {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      margin-bottom: 20px;
-    }
-
-    .sidebar .icon {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #0f0f0f, #14a3c7);
       color: white;
-      font-size: 20px;
-      margin: 20px 0;
-    }
+      overflow-x: hidden;
+    }/* Top Navigation */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0f0f0f;
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+.menu-btn {
+  font-size: 24px;
+  cursor: pointer;
+}
 
-    .section-title {
-      font-size: 1.4rem;
-      margin: 1rem;
-      color: #14a3c7;
-    }
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  right: -250px;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #121212;
+  transition: right 0.3s ease;
+  padding: 20px 15px;
+  z-index: 1001;
+}
+.sidebar.active {
+  right: 0;
+}
+.profile-pic {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #333;
+  margin-bottom: 20px;
+}
+.sidebar a {
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  padding: 10px 0;
+  font-size: 16px;
+}
+.sidebar a i {
+  margin-right: 10px;
+}
 
-    .banner-slider {
-      display: flex;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-    }
+/* Search */
+.search-box {
+  display: flex;
+  align-items: center;
+  background: #222;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin: 20px auto;
+  max-width: 90%;
+}
+.search-box input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 16px;
+  outline: none;
+}
+.search-box i {
+  color: white;
+}
 
-    .banner-slider img {
-      width: 300px;
-      height: 180px;
-      object-fit: cover;
-      scroll-snap-align: start;
-      margin-right: 10px;
-      border-radius: 8px;
-    }
+/* Banner Slider */
+.banner {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 10px;
+}
+.banner img {
+  width: 80%;
+  max-width: 320px;
+  scroll-snap-align: start;
+  margin: 0 auto;
+  border-radius: 10px;
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 12px;
-      padding: 1rem;
-    }
+/* Sections */
+.section {
+  padding: 10px 20px;
+}
+.section h2 {
+  margin-bottom: 10px;
+  border-left: 4px solid #14a3c7;
+  padding-left: 10px;
+}
 
-    .card {
-      background-color: #1f1f1f;
-      border-radius: 8px;
-      overflow: hidden;
-      text-align: center;
-      border: 1px solid #333;
-    }
+/* Comic Cards Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.card {
+  background: #1c1c1c;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  padding-bottom: 10px;
+}
+.card img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+}
+.card-title {
+  margin-top: 6px;
+  font-size: 14px;
+}
 
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-
-    .card-title {
-      padding: 8px;
-      font-size: 0.9rem;
-      color: #fff;
-    }
-
-    /* Scrollbar Styling */
-    ::-webkit-scrollbar {
-      height: 8px;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background-color: #14a3c7;
-      border-radius: 10px;
-    }
-
-    @media (max-width: 768px) {
-      .banner-slider img {
-        width: 240px;
-        height: 150px;
-      }
-
-      .card img {
-        height: 160px;
-      }
-    }
   </style>
 </head>
 <body>
-  <header>NotMyWatch</header>
-
-  <!-- Sidebar (Right side) -->
-  <div class="sidebar">
-    <img src="solo.jpg" alt="Profile" class="profile" />
-    <div class="icon">🏠</div>
-    <div class="icon">📚</div>
-    <div class="icon">🔖</div>
-    <div class="icon">🔍</div>
-    <div class="icon">🔐</div>
-  </div>
-
-  <!-- Banner Slider -->
-  <div class="section-title">🔥 Most Popular</div>
-  <div class="banner-slider">
-    <img src="solo.jpg" alt="Solo Leveling" />
-    <img src="orv.jpg" alt="ORV" />
-    <img src="estate.jpg" alt="Estate Dev" />
-    <img src="solo.jpg" alt="Coming Soon" />
-    <img src="orv.jpg" alt="Coming Soon" />
-  </div>
-
-  <!-- Popular Today -->
-  <div class="section-title">📈 Popular Today</div>
-  <div class="grid">
-    <div class="card"><img src="solo.jpg" /><div class="card-title">Solo Leveling</div></div>
-    <div class="card"><img src="orv.jpg" /><div class="card-title">ORV</div></div>
-    <div class="card"><img src="estate.jpg" /><div class="card-title">Estate Developer</div></div>
-    <div class="card"><img src="orv.jpg" /><div class="card-title">Coming Soon</div></div>
-    <div class="card"><img src="solo.jpg" /><div class="card-title">Coming Soon</div></
+  <!-- Top Bar -->
+  <div class="topbar">
+    <div class="logo">NotMyWatch</div>
+    <div class="menu-btn" onclick="toggleSidebar()">
+      <i class="fas fa-bars"></i>
+    </div>
+  </div>  <!-- Sidebar -->  <div class="sidebar" id="sidebar">
+    <div class="profile-pic"></div>
+    <a href="#"><i class="fas fa-home"></i> Home</a>
+    <a href="#"><i class="fas fa-book"></i> Comics</a>
+    <a href="#"><i class="fas fa-bookmark"></i> Bookmarks</a>
+    <a href="#"><i class="fas fa-user"></i> Login</a>
+  </div>  <!-- Search -->  <div class="search-box">
+    <i class="fas fa-search"></i>
+    <input type="text" placeholder="Search manhwa...">
+  </div>  <!-- Banner Slider -->  <div class="banner">
+    <img src="solo.jpg" alt="Solo Leveling">
+    <img src="orv.jpg" alt="ORV">
+    <img src="estate.jpg" alt="Estate Developer">
+    <img src="solo.jpg" alt="More Manhwa">
+    <img src="orv.jpg" alt="More Manhwa">
+  </div>  <!-- Sections -->  <div class="section">
+    <h2>Popular Today</h2>
+    <div class="grid">
+      <div class="card"><img src="solo.jpg"><div class="card-title">Solo Leveling</div></div>
+      <div class="card"><img src="orv.jpg"><div class="card-title">ORV</div></div>
+      <div class="card"><img src="estate.jpg"><div class="card-title">Estate Developer</div></div>
+      <div class="card"><img src="solo.jpg"><div class="card-title">Coming Soon</div></div>
+      <div class="card"><img src="orv.jpg"><div class="card-title">Coming Soon</div></div>
+      <div class="card"><img src="estate.jpg"><div class="card-title">Coming Soon</div></div>
+    </div>
+  </div>  <div class="section">
+    <h2>Latest Updates</h2>
+    <div class="grid">
+      <div class="card"><img src="orv.jpg"><div class="card-title">Coming Soon</div></div>
+      <div class="card"><img src="solo.jpg"><div class="card-title">Coming Soon</div></div>
+      <div class="card"><img src="estate.jpg"><div class="card-title">Coming Soon</div></div>
+      <div class="card"><img src="orv.jpg"><div class="card-title">Coming Soon</div></div>
+      <div class="card"><img src="solo.jpg"><div class="card-title">Coming Soon</div></div>
+      <div class="card"><img src="estate.jpg"><div class="card-title">Coming Soon</div></div>
+    </div>
+  </div>  <script>
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("active");
+    }
+  </script></body>
+</html>
